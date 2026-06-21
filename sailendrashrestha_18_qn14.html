@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <head>
-<link rel="stylesheet" href="/css/sambodhanrai15_14.css">
+    <style>
+        table { border-collapse: collapse; width: 90%; margin-bottom: 15px; font-family: Arial, sans-serif; }
+        th, td { border: 1px solid whitesmoke; padding: 10px; text-align: left; }
+        th { background-color: white; font-size: 14px; color: #555; }
+        select, input[type="number"] { width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .trash-btn { background-color: #d9534f; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; font-size: 14px; }
+        .trash-btn:hover { background-color: #c9302c; }
+        .add-btn { background-color: #00bfff; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        .add-btn:hover { background-color: #009acd; }
+    </style>
 </head>
 <body>
-<div class="header">Header</div>
-<div class="menu">Menu</div>
-<div class="left">Left Side</div>
-<div class="center">Center</div>
-<div class="right">Right</div>
-<div class="footer">Footer</div>
-</body>
+    <table id="productTable">
+        <tr>
+            <th style="width: 5%;">No</th>
+            <th style="width: 45%;">Product</th>
+            <th style="width: 40%;">Price</th>
+            <th style="width: 10%;">Action</th>
+        </tr>
+        <tr>
+            <td class="row-num">1</td>
+            <td>
+                <select>
+                    <option>Select Product</option>
+                    <option>Product A</option>
+                    <option>Product B</option>
+                </select>
+            </td>
+            <td><input type="number" placeholder="0.00" min="0" step="0.01"></td>
+            <td><button class="trash-btn" onclick="removeRow(this)">🗑</button></td>
+        </tr>
+    </table>
+    <button class="add-btn" onclick="addRow()">Add New</button>
+    <script>
+        function addRow() {
+            let table = document.getElementById("productTable");
+            let rowCount = table.rows.length;
+            let row = table.insertRow(-1);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
+            cell1.className = "row-num";
+            cell1.textContent = rowCount;
+            cell2.innerHTML = "<select><option>Select Product</option><option>Product A</option><option>Product B</option></select>";
+            cell3.innerHTML = "<input type='number' placeholder='0.00' min='0' step='0.01'>";
+            cell4.innerHTML = "<button class='trash-btn' onclick='removeRow(this)'>🗑</button>";
+        }
+        function removeRow(btn) {
+            let row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+            reindexTable();
+        }
+        function reindexTable() {
+            let rows = document.querySelectorAll("#productTable tr");
+            for (let i = 1; i < rows.length; i++) {
+                rows[i].querySelector(".row-num").textContent = i;
+            }
+        }
+    </script>
+<body>
 </html>

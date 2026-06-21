@@ -1,68 +1,30 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mystery Code</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; }
-    nav {
-      background-color: rgb(24, 24, 128);
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 50px;
-    }
-    .logo { color: white; font-size: 18px; font-weight: bold; }
-    .nav-links { list-style: none; display: flex; gap: 20px; }
-    .nav-links a { color: white; text-decoration: none; font-size: 14px; }
-    .menu-btn {
-      display: none;
-      border: 1px solid white;
-      color: white;
-      background: transparent;
-      padding: 4px 10px;
-      font-size: 13px;
-      border-radius: 3px;
-    }
-    .mobile-menu { display: none; background-color: #1a2a3a; }
-    .mobile-menu a {
-      display: block;
-      text-align: center;
-      color: white;
-      text-decoration: none;
-      padding: 12px 0;
-      border-top: 1px solid #2e4057;
-      font-size: 15px;
-    }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .menu-btn { display: block; }
-      .mobile-menu { display: block; }
-    }
-  </style>
+    <style>
+        .clock-container { background-color: purple; width: fit-content; padding: 20px 40px; border-radius: 10px; text-align: center; font-family: monospace; }
+        .clock-title { color: white; margin: 0 0 10px 0; font-size: 18px; letter-spacing: 2px; }
+        .time-box { background: white; color: black; display: inline-block; padding: 10px 15px; font-size: 30px; font-weight: bold; border-radius: 5px; }
+        .colon { color: white; font-size: 30px; margin: 0 5px; vertical-align: top; line-height: 50px;}
+    </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Mystery Code</div>
-    <button class="menu-btn">Menu</button>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Service</a></li>
-      <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-  </nav>
-  <div class="mobile-menu">
-    <a href="#">Home</a>
-    <a href="#">About Us</a>
-    <a href="#">Service</a>
-    <a href="#">Portfolio</a>
-    <a href="#">Blog</a>
-    <a href="#">Contact Us</a>
-  </div>
+    <div class="clock-container">
+        <div class="clock-title">DIGITAL CLOCK</div>
+        <span id="hrs" class="time-box">00</span>
+        <span class="colon">:</span>
+        <span id="mins" class="time-box">00</span>
+        <span class="colon">:</span>
+        <span id="secs" class="time-box">00</span>
+    </div>
+    <script>
+        function updateClock() {
+            let now = new Date();
+            document.getElementById("hrs").textContent = String(now.getHours()).padStart(2, '0');
+            document.getElementById("mins").textContent = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById("secs").textContent = String(now.getSeconds()).padStart(2, '0');
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
 </body>
 </html>

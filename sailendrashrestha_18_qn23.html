@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<body>
+    <button onclick="loadData()">Load AJAX Context File</button>
+    <div id="contentArea"></div>
+<script>
+     function loadData() {
+    fetch("data.txt")
+        .then(function(response) {
+            return response.text(); 
+        })
+        .then(function(data) {
+            document.getElementById("contentArea").innerHTML = "<p>" + data + "</p>";
+        })
+        .catch(function(err) {
+            console.error("AJAX Fetch Operation Failure:", err);
+        });
+}
+</script>
+</body>
+</html>

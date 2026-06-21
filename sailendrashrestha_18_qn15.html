@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <head>
-<link rel="stylesheet" href="/css/sambodhanrai_15_15.css">
+    <style>
+        .btn-panel { display: flex; flex-wrap: wrap; }
+        .btn-panel button { color: white; border: 1px solid black; padding: 10px; cursor: pointer; font-size: 12px; }
+        #targetPara { margin-top: 20px; padding: 15px; border: 1px solid #000; font-size: 14px;}
+    </style>
 </head>
 <body>
-<div class="container">
-<div class="a1">Content Area 1</div>
-<div class="row">
-<div class="a2">Content Area 2</div>
-<div class="a3">Content Area 3</div>
-</div>
-<div class="row2">
-<div class="a4">Content Area 4</div>
-<div class="a5">Content Area 5</div>
-<div class="a6">Content Area 6</div>
-</div>
-</div>
+    <div class="btn-panel">
+        <button style="background: blue;" onclick="changeBg('lightblue')">Change Background</button>
+        <button style="background: orange; color: black;" onclick="changeParaBg('lightyellow')">Change Paragraph Background</button>
+        <button style="background: darkorange;" onclick="togglePara(false)">Hide Paragraph</button>
+        <button style="background: green;" onclick="togglePara(true)">Show Paragraph</button>
+        <button style="background: purple;" onclick="alterFontSize(2)">Increase font Size by 2pt.</button>
+        <button style="background: teal;" onclick="alterFontSize(-2)">Decrease font Size by 2pt.</button>
+        <button style="background: red;" onclick="resetFont()">Reset font into 12 pt.</button>
+        <button style="background: navy;" onclick="changeTextColor('red')">Change Text Color</button>
+    </div>
+    <p id="targetPara">This is the sample functional target text paragraph workspace.</p>
+    <script>
+        let para = document.getElementById("targetPara");
+        let currentSize = 14; 
+        function changeBg(color) { document.body.style.backgroundColor = color; }
+        function changeParaBg(color) { para.style.backgroundColor = color; }
+        function togglePara(show) { para.style.display = show ? "block" : "none"; }
+        function alterFontSize(val) { currentSize += val; para.style.fontSize = currentSize + "pt"; }
+        function resetFont() { currentSize = 12; para.style.fontSize = "12pt"; }
+        function changeTextColor(color) { para.style.color = color; }
+    </script>
 </body>
 </html>

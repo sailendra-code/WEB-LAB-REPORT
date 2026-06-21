@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <head>
-<title>Class Routine</title>
+    <title>Precise Age Calculator</title>
 </head>
 <body>
-<h2 align="center">BIM 3rd Semester Class Routine</h2>
-<table border="1" cellpadding="10" cellspacing="2" align="center">
-<tr>
-<th>Day</th>
-<th>6:00-7:00</th>
-<th>7:00-8:00</th>
-<th>8:00-9:00</th>
-</tr>
-<tr>
-<td>Sunday</td>
-<td>Web Technology</td>
-<td>DSA</td>
-<td>Statistics</td>
-</tr>
-<tr>
-<td>Monday</td>
-<td>Microprocessor</td>
-<td>Accounting</td>
-<td>Web Technology</td>
-</tr>
-<tr>
-<td>Tuesday</td>
-<td>DSA</td>
-<td>Microprocessor</td>
-<td>Web Technology</td>
-</tr>
-</table>
+    <form id="ageForm">
+        <label for="birthDate">Select your Date of Birth: </label>
+        <input type="date" id="birthDate" required>
+        <button type="button" onclick="calculateExactAge()">Calculate Age</button>
+    </form>
+    <p id="ageResult"></p>
+    <script>
+        function calculateExactAge() {
+            let birthDateInput = document.getElementById("birthDate").value;
+            let result = document.getElementById("ageResult");
+            if (birthDateInput === "") {
+                result.textContent = "Please select a valid date.";
+                return;
+            }
+            let birthDate = new Date(birthDateInput);
+            let currentDate = new Date();
+            if (birthDate > currentDate) {
+                result.textContent = "Birth date cannot be in the future!";
+                return;
+            }
+            let age = currentDate.getFullYear() - birthDate.getFullYear();
+            let monthDiff = currentDate.getMonth() - birthDate.getMonth();
+            let dayDiff = currentDate.getDate() - birthDate.getDate();
+            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                age--;
+            }
+            result.innerHTML = 'You are exactly '+age+' years old.';
+        }
+    </script>
 </body>
 </html>

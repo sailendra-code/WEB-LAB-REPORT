@@ -1,26 +1,15 @@
 <!DOCTYPE html>
-<head>
-<title>Text Formatting</title>
-</head>
 <body>
-<b>Bold Text</b><br>
-<strong>Strong Text</strong><br>
-<i>Italic Text</i><br>
-<em>Emphasized Text</em><br>
-<q>This is a quotation</q>
-<blockquote>This is a block quotation example.</blockquote>
-<del>Deleted Text</del><br>
-<ins>Inserted Text</ins><br>
-<font color="blue" size="5">Font Tag Example</font>
-<pre>
-This text
-is displayed
-as written.
-</pre>
-<code>print("Hello World");</code><br>
-<tt>Teletype Text</tt>
-<p>H<sub>2</sub>O</p>
-<p>x<sup>2</sup></p>
-<p>HTML Entity Example: &copy; &nbsp; &lt; &gt;</p>
+    <script>
+        let n1 = parseInt(prompt("Enter first integer:"));
+        let n2 = parseInt(prompt("Enter second integer:"));
+        if(n1 === n2) {
+            document.write("Both integers are equal.");
+        } else {
+            let larger = n1 > n2 ? n1 : n2;
+            let smaller = n1 < n2 ? n1 : n2;
+            document.write(`Larger: ${larger}<br>Smaller: ${smaller}`);
+        }
+    </script>
 </body>
 </html>

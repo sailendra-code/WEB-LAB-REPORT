@@ -1,31 +1,20 @@
 <!DOCTYPE html>
-<head>
-<link rel="stylesheet" href="/css/sambodhanrai_15_13.css">
-<title>Registration Form</title>
-</head>
 <body>
-<div class="container">
-    <div class="register">
-        <h2>Register Form</h2>
-        <input type="text" placeholder="Username">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <input type="password" placeholder="Confirm Password">
-        <input type="radio" name="g">Female
-        <input type="radio" name="g">Male
-        <br><br>
-        <input type="checkbox"> I have read and accept terms of use.
-        <br><br>
-        <button>Submit</button>
-    </div>
-    <div class="login">
-        <h2>Login Form</h2>
-<input type="email" placeholder="Enter your email">
-<input type="password" placeholder="Password">
-<input type="checkbox"> Remember Me
-<br><br>
-<button>LOGIN</button>
-    </div>
-</div>
+    <button onclick="createCookie()">Store Cookie</button>
+    <button onclick="readCookie()">Read Cookie</button>
+    <button onclick="deleteCookie()">Delete Cookie</button>
+    <script>
+        function createCookie() {
+            document.cookie = "username=Gengis Khan; path=/; max-age=3600";
+            alert("Cookie Stored Successfully!");
+        }
+        function readCookie() {
+            alert("Current Cookies: " + document.cookie);
+        }
+        function deleteCookie() {
+            document.cookie = "username=; path=/; max-age=0";
+            alert("Cookie Deleted Successfully!");
+        }
+    </script>
 </body>
 </html>

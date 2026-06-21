@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <head>
-<title>Navigation Menu</title>
-<style>
-ul{
-list-style:none;
-margin:0;
-padding:0;
-background:yellow;
-overflow:hidden;
-}
-li{
-float:left;
-border-right:1px solid black;
-}
-li a{
-display:block;
-padding:15px 25px;
-text-decoration:none;
-color:black;
-}
-.active{
-background:blue;
-color:white;
-}
-</style>
+    <style>
+        .counter-box { text-align: center; font-family: Arial; background-color: #fce4ec; padding: 20px; width: 220px; border-radius: 8px;}
+        .display { font-size: 24px; background: white; padding: 5px 20px; border-radius: 4px; margin: 10px; display: inline-block;}
+        button { font-size: 18px; padding: 5px 15px; color: white; border: none; cursor: pointer; border-radius: 4px;}
+        .btn-plus,.btn-minus { background-color: limegreen; }
+        .btn-reset { background-color: limegreen; display: block; margin: 10px auto; }
+    </style>
 </head>
 <body>
-<ul>
-<li><a class="active" href="#">Home</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Services</a></li>
-<li><a href="#">Gallery</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
+    <div class="counter-box">
+        <h4 style="margin:0; color:red;">Counter App</h4>
+        <button class="btn-plus" onclick="changeValue(1)">+</button>
+        <span id="counterValue" class="display">0</span>
+        <button class="btn-minus" onclick="changeValue(-1)">-</button>
+        <button class="btn-reset" onclick="resetCounter()">Reset</button>
+    </div>
+    <script>
+        let count = 0;
+        const valSpan = document.getElementById("counterValue");
+        function changeValue(val) {
+            count += val;
+            valSpan.textContent = count;
+        }
+        function resetCounter() {
+            count = 0;
+            valSpan.textContent = count;
+        }
+    </script>
 </body>
 </html>

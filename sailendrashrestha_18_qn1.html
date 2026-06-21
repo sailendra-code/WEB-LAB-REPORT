@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <head>
-    <title>Basic HTML Page</title>
+    <title>Types of JavaScript</title>
+    <script>
+        function internalAlert() {
+            alert("This is from Internal JavaScript!");
+        }
+    </script>
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
-    <p>This is a basic HTML page structure.</p>
+    <h2>JavaScript Implementation Types</h2>
+    <button onclick="alert('This is from Inline JavaScript!')">Inline JS</button>
+    <button onclick="internalAlert()">Internal JS</button>
+    <button onclick="externalAlert()">External JS</button>
 </body>
 </html>

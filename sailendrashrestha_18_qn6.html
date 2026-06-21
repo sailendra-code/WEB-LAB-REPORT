@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <head>
-<title>Iframe and Image</title>
+    <title>DOM Manipulation Tasks</title>
 </head>
 <body>
-<h2>Image Example</h2>
-<img src="/1/nature.jpg"width="400" height="250"alt="Nature Image">
-<h2>Iframe Example</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lBvGMpleC2Q?si=Coo06KkbZZShbMvL"
- title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
- encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen></iframe>
+    <p>Paragraph One</p>
+    <p id="para2">Paragraph Two</p>
+    <p>Paragraph Three</p>
+    <p>Paragraph Four</p>
+    <script>
+        let firstP = document.querySelector('p');
+        console.log("First element tag:", firstP.tagName);
+        let secondP = document.querySelector('#para2');
+        let allParas = document.querySelectorAll('p');
+        allParas.forEach((p, index) => {
+            console.log("Paragraph " + (index + 1) + " text: " + p.textContent);
+        });
+        if(allParas[3]) {
+            allParas[3].textContent = "Fourth Paragraph";
+        }
+        allParas.forEach((p, idx) => {
+            p.setAttribute('id', "para-id-" + (idx + 1));
+            p.setAttribute('class', "para-class-" + (idx + 1));
+        });
+        allParas.forEach(p => {
+            p.style.fontFamily = "sans-serif";
+            p.style.border = "1px solid #ccc";
+            p.style.fontSize = "18px";
+        });
+        allParas.forEach((p, idx) => {
+            if (idx === 0 || idx === 2) {
+                p.style.color = "green";
+            } else if (idx === 1 || idx === 3) {
+                p.style.color = "red";
+            }
+        });
+    </script>
 </body>
 </html>
